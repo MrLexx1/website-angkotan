@@ -7,11 +7,38 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section>
-      <div class="navbar">
-        <h1>Juragan - Angkot</h1>
+    <div class="container">
+      <h1>Angkot - Kota</h1>
+      <div>
+        <label for="nama">Nama penumpang:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama penumpang">
       </div>
-    </section>
+
+      <div>
+        <label for="angkot">Pilih Angkot:</label>
+        <select id="angkot">
+          <option value="1">Angkot 1</option>
+          <option value="2">Angkot 2</option>
+          <option value="3">Angkot 3</option>
+        </select>
+      </div>
+
+      <div>
+        <button id="tambahBtn">Tambah penumpang</button>
+        <button id="hapusBtn">Hapus penumpang</button>
+      </div>
+
+      <div>
+        <button id="tampilkanBtn">Tampilkan penumpang/button>
+        <button id="hitungBtn">hitung penumpang/button>
+      </div>
+
+      <div>
+        <h3>Tarif per orang: Rp 5,000</h3>
+      </div>
+
+      <div id="output"></div>
+    </div>
 
     <script src="main.js"></script>
   </body>
