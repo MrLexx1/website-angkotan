@@ -1,10 +1,9 @@
+// Arrays untuk menyimpan penumpang per angkot
 var angkot1 = [];
 var angkot2 = [];
 var angkot3 = [];
 
-const tarif = 5000;
-
-// Menambahkan penumpang
+// Fungsi menambah penumpang
 document.getElementById("tambahBtn").addEventListener("click", function () {
   var nama = document.getElementById("nama").value;
   var angkot = document.getElementById("angkot").value;
@@ -22,10 +21,11 @@ document.getElementById("tambahBtn").addEventListener("click", function () {
     angkot3 = tambahPenumpang(nama, angkot3);
   }
 
-  document.getElementById("nama").value = "";
+  updatePenumpangList();
+  document.getElementById("nama").value = ""; // Clear input field
 });
 
-// Menghapus penumpang
+// Fungsi menghapus penumpang
 document.getElementById("hapusBtn").addEventListener("click", function () {
   var nama = document.getElementById("nama").value;
   var angkot = document.getElementById("angkot").value;
@@ -43,28 +43,35 @@ document.getElementById("hapusBtn").addEventListener("click", function () {
     angkot3 = hapusPenumpang(nama, angkot3);
   }
 
-  document.getElementById("nama").value = "";
+  updatePenumpangList();
+  document.getElementById("nama").value = ""; // Clear input field
 });
 
-// Menampilkan penumpang
-document.getElementById("tampilkanBtn").addEventListener("click", function () {
-  var angkot = document.getElementById("angkot").value;
+// Fungsi untuk menampilkan penumpang
+function updatePenumpangList() {
+  // Update daftar penumpang untuk setiap angkot
+  updateList("angkot1List", angkot1);
+  updateList("angkot2List", angkot2);
+  updateList("angkot3List", angkot3);
 
-  if (angkot === "1") {
-    tampilkanPenumpang(angkot1, 1);
-  } else if (angkot === "2") {
-    tampilkanPenumpang(angkot2, 2);
-  } else if (angkot === "3") {
-    tampilkanPenumpang(angkot3, 3);
-  }
-});
-
-// Menghitung total penumpang
-document.getElementById("hitungBtn").addEventListener("click", function () {
+  // Hitung total penumpang
   var total = hitungTotalPenumpang(angkot1, angkot2, angkot3);
-  document.getElementById("output").innerHTML =
-    "Total penumpang: " + total + "<br>Total tarif: Rp " + total * tarif;
-});
+  document.getElementById("totalPenumpang").textContent = total;
+}
+
+// Fungsi untuk memperbarui daftar penumpang di halaman
+function updateList(angkotId, penumpang) {
+  var listElement = document
+    .getElementById(angkotId)
+    .getElementsByTagName("ul")[0];
+  listElement.innerHTML = ""; // Clear previous list
+
+  penumpang.forEach(function (penumpang) {
+    var li = document.createElement("li");
+    li.textContent = penumpang || "Kosong";
+    listElement.appendChild(li);
+  });
+}
 
 // Fungsi menambah penumpang
 function tambahPenumpang(namaPenumpang, penumpang) {
@@ -106,18 +113,6 @@ function hapusPenumpang(namaPenumpang, penumpang) {
         return penumpang;
       }
     }
-  }
-}
-
-// Fungsi menampilkan penumpang
-function tampilkanPenumpang(penumpang, angkotNumber) {
-  if (penumpang.length === 0) {
-    alert("Tidak ada penumpang di angkot " + angkotNumber + ".");
-  } else {
-    var daftarPenumpang = penumpang
-      .map((penumpang, index) => `${index + 1}. ${penumpang || "Kosong"}`)
-      .join("\n");
-    alert("Daftar penumpang angkot " + angkotNumber + ":\n" + daftarPenumpang);
   }
 }
 

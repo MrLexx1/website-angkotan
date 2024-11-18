@@ -3,43 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juragan - Angkot</title>
+    <title>Manajemen Penumpang Angkot</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Angkot - Kota</h1>
-      <div>
-        <label for="nama">Nama penumpang:</label>
-        <input type="text" id="nama" placeholder="Masukkan nama penumpang">
-      </div>
+      <h1>Manajemen Penumpang Angkot</h1>
 
-      <div>
+      <div class="form-section">
+        <label for="nama">Nama Penumpang:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama" />
+
         <label for="angkot">Pilih Angkot:</label>
         <select id="angkot">
           <option value="1">Angkot 1</option>
           <option value="2">Angkot 2</option>
           <option value="3">Angkot 3</option>
         </select>
+
+        <button id="tambahBtn">Tambah Penumpang</button>
+        <button id="hapusBtn">Hapus Penumpang</button>
+      </div>
+
+      <h3>Daftar Penumpang</h3>
+      <div id="penumpangList">
+        <div id="angkot1List">
+          <h4>Angkot 1</h4>
+          <ul></ul>
+        </div>
+        <div id="angkot2List">
+          <h4>Angkot 2</h4>
+          <ul></ul>
+        </div>
+        <div id="angkot3List">
+          <h4>Angkot 3</h4>
+          <ul></ul>
+        </div>
       </div>
 
       <div>
-        <button id="tambahBtn">Tambah penumpang</button>
-        <button id="hapusBtn">Hapus penumpang</button>
+        <h3>Total Penumpang: <span id="totalPenumpang">0</span></h3>
       </div>
-
-      <div>
-        <button id="tampilkanBtn">Tampilkan penumpang</button>
-        <button id="hitungBtn">Hitung penumpang</button>
-      </div>
-
       <div>
         <h3>Tarif per orang: Rp 5,000</h3>
       </div>
-
-      <div id="output"></div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
