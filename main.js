@@ -21,6 +21,8 @@ document.getElementById("tambahBtn").addEventListener("click", function () {
   } else if (angkot === "3") {
     angkot3 = tambahPenumpang(nama, angkot3);
   }
+
+  document.getElementById("nama").value = "";
 });
 
 // Menghapus penumpang
@@ -40,6 +42,8 @@ document.getElementById("hapusBtn").addEventListener("click", function () {
   } else if (angkot === "3") {
     angkot3 = hapusPenumpang(nama, angkot3);
   }
+
+  document.getElementById("nama").value = "";
 });
 
 // Menampilkan penumpang
